@@ -19,4 +19,13 @@ document.addEventListener('DOMContentLoaded', function() {
             actorList.style.display = 'none';
         }
     });
+
+    fetch('https://restcountries.com/v3.1/all')
+        .then(response => response.json())
+        .then(data => {
+            const countryListDiv = document.getElementById('countryList');
+            const countryNames = data.map(country => country.name.common).sort();
+            countryListDiv.innerHTML = '<h2>Lista de Países</h2><ul>' + countryNames.map(name => `<li>${name}</li>`).join('') + '</ul>';
+        })
+        .catch(error => console.error('Error fetching country data:', error));
 });
