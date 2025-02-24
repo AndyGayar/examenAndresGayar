@@ -10,4 +10,13 @@ document.addEventListener('DOMContentLoaded', function() {
         const formDataDiv = document.getElementById('formData');
         formDataDiv.innerHTML = `<p>Nombre: ${name}</p><p>Correo Electrónico: ${email}</p>`;
     });
+
+    document.getElementById('toggleActorListButton').addEventListener('click', function() {
+        const actorList = document.getElementById('actorList');
+        if (actorList.style.display === 'none') {
+            actorList.style.display = 'block';
+        } else {
+            actorList.style.display = 'none';
+        }
+    });
 });
